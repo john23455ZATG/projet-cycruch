@@ -1,16 +1,25 @@
-all: main
+cc=gcc
 
-CC = clang
-override CFLAGS += -g -Wno-everything -pthread -lm
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+all: EXEC
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.c' -print)
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.h' -print)
 
-main: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) $(SRCS) -o "$@"
+main.o: main.c
+	$(cc) -c main.c -o main.o
 
-main-debug: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) -O0 $(SRCS) -o "$@"
+fonction.o: fonction.c
+	$(cc) -c fonction.c -o fonction.o
 
+affiche.o: affiche.c
+	$(cc) -c  affiche.c -o affiche.o
+
+sauvegarde.o: sauvegarde.c
+	$(cc) -c sauvegarde.c -o sauvegarde.o
+
+
+
+EXEC: fonction.o main.o affiche.o sauvegarde.o
+	$(cc) $(OBJ) -o Exec -lm
 clean:
-	rm -f main main-debug
+	rm *.o EXEC
