@@ -1,5 +1,7 @@
 Bonjour cher utilisateur, tout d’abord avant de procéder au début du jeu, nous vous prions bien de compiler le code afin d’accéder au programme et commencer une partie.
-Veilliez rentrer : make gcc-o projet projet.cexec.//////////John
+Veilliez rentrer : make Puis gcc-o projet projet.c puis pour executer : ./Exec
+
+//////////John
 BIENVENU DANS CY CRUSH !
 CY crush est un jeu passionnant de stratégie et de hasard qui consiste à penser ces coups en avance ou tout simplement agir en spontanéité en échangeant de place deux cases d’un 
 plateau de jeu de sorte à faire aligner plusieurs symboles identiques sur la même ligne , même colonne ou de maninère circulaire.
